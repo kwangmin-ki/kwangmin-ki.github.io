@@ -23,6 +23,9 @@
       --rule: #e9e9e9;
       --accent: #007534;
       --title: #005c26;
+      --red: #c62828;
+      --label: #1f8f4e;
+      --meta: #5d6a64;
       --font: "Pretendard Variable", Pretendard, "Helvetica Neue", Helvetica, Arial, "Apple SD Gothic Neo", sans-serif;
     }
     * { box-sizing: border-box; }
@@ -62,6 +65,12 @@
       white-space: nowrap;
     }
     .tagline { margin: 20px 0 0; color: var(--soft); font-size: 1.05rem; line-height: 1.6; }
+    .tagline b { color: var(--ink); font-weight: 700; }
+
+    /* emphasis: bold for names, marker highlight for the key research topics */
+    .content b, .news b, .beyond b { color: var(--ink); font-weight: 700; }
+    .hl { font-weight: 700; color: var(--ink); background: linear-gradient(transparent 55%, #ffe98a 55%); padding: 0 2px; border-radius: 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    .red { color: var(--red); font-weight: 700; white-space: nowrap; }
 
     .profile { width: 300px; flex: none; }
     .profile img {
@@ -84,7 +93,7 @@
       padding: 30px 0;
       border-top: 1px solid var(--rule);
     }
-    .row h2 { margin: 3px 0 0; font-size: 0.95rem; font-weight: 500; color: var(--muted); }
+    .row h2 { margin: 2px 0 0; font-size: 1.02rem; font-weight: 700; color: var(--label); letter-spacing: -0.01em; }
     .content { min-width: 0; }
     .content p { margin: 0 0 1em; max-width: 46em; }
     .content > :last-child { margin-bottom: 0; }
@@ -92,26 +101,26 @@
     /* News */
     .news { list-style: none; margin: 0; padding: 0; max-width: 46em; }
     .news li { display: grid; grid-template-columns: 48px 1fr; gap: 8px; margin-bottom: 6px; }
-    .news time { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .news time { color: var(--meta); font-weight: 700; font-variant-numeric: tabular-nums; }
 
     /* Dated entries */
     .entry { display: grid; grid-template-columns: 100px 1fr; gap: 0 12px; margin-bottom: 14px; }
     .entry:last-child { margin-bottom: 0; }
-    .entry .when { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .entry .when { color: var(--meta); font-weight: 700; font-variant-numeric: tabular-nums; }
     .entry .what { font-weight: 600; letter-spacing: -0.005em; }
     .entry .sub { color: var(--soft); font-size: 0.95rem; }
 
     /* Publications */
     .legend { margin: 0 0 18px; color: var(--muted); font-size: 0.9rem; }
     .pub { display: grid; grid-template-columns: 38px 1fr; margin: 0 0 24px; }
-    .pub .tag { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; padding-top: 1px; }
+    .pub .tag { color: var(--meta); font-weight: 700; font-size: 0.9rem; font-variant-numeric: tabular-nums; padding-top: 1px; }
     .pub:last-child { margin-bottom: 0; }
     .pub .title { font-weight: 600; line-height: 1.5; letter-spacing: -0.005em; color: var(--title); }
     .pub .authors { color: var(--soft); font-size: 0.95rem; margin-top: 2px; }
     .pub .authors b { color: var(--ink); font-weight: 600; }
     .pub .venue { font-size: 0.95rem; color: var(--soft); }
     .pub .venue b { color: var(--ink); font-weight: 700; }
-    .pub .venue .oral { color: var(--accent); font-weight: 700; white-space: nowrap; }
+    .pub .venue .oral { color: var(--red); font-weight: 700; white-space: nowrap; }
     .pub .venue .oral svg { width: 1.1em; height: 0.95em; vertical-align: -0.12em; margin-right: 5px; }
     .pub .links { font-size: 0.9rem; margin-top: 2px; }
     .pub .links a { margin-right: 14px; }
@@ -156,7 +165,7 @@
       <div>
         <h1>Kwangmin Ki</h1>
         <p class="tagline">
-          Undergraduate researcher, ML3 Lab, Yonsei University<br>
+          <b>Undergraduate researcher, ML3 Lab, Yonsei University</b><br>
           B.S. student in Computer Science &amp; Life Sciences, Korea University
         </p>
       </div>
@@ -185,8 +194,8 @@
       <section class="row" id="about">
         <h2>About</h2>
         <div class="content">
-          <p>Hello! I study how large language models reason, where they fail, and how they can be adapted without losing what they already know. My recent work covers reward hacking detection, catastrophic forgetting in domain adaptation, and LLM ensembling.</p>
-          <p>I am pursuing a B.S. in Computer Science &amp; Life Sciences at Korea University. I am also an undergraduate researcher at the <a href="https://ml3.yonsei.ac.kr/" target="_blank" rel="noopener">ML3 Lab</a> at Yonsei University, advised by <a href="https://sites.google.com/view/jaehyungkim" target="_blank" rel="noopener">Jaehyung Kim</a>. Before that, I was a research intern at LG AI Research and an undergraduate researcher at KAIST. You can find more information in my <a href="KwangminKi_CV.pdf" target="_blank" rel="noopener">CV</a>.</p>
+          <p>Hello! I work on making large language models <span class="hl">reason better</span>, <span class="hl">behave more reliably</span>, and <span class="hl">run more efficiently</span>. My recent work covers reward hacking detection, catastrophic forgetting in domain adaptation, and LLM ensembling.</p>
+          <p>I am pursuing a B.S. in Computer Science &amp; Life Sciences at <b>Korea University</b>. I am also an undergraduate researcher at the <a href="https://ml3.yonsei.ac.kr/" target="_blank" rel="noopener">ML3 Lab</a> at <b>Yonsei University</b>, advised by <a href="https://sites.google.com/view/jaehyungkim" target="_blank" rel="noopener">Jaehyung Kim</a>. Before that, I was a research intern at <b>LG AI Research</b> and an undergraduate researcher at <b>KAIST</b>. You can find more information in my <a href="KwangminKi_CV.pdf" target="_blank" rel="noopener">CV</a>.</p>
         </div>
       </section>
 
@@ -194,9 +203,9 @@
         <h2>News</h2>
         <div class="content">
           <ul class="news">
-            <li><time>2026</time><span>“CPR for LLMs” was accepted to EMNLP 2026 (Main) as an oral presentation.</span></li>
-            <li><time>2026</time><span>“How Instruction Hierarchy Breaks Under Pairwise Multi-Conflict Pressure” was accepted to EMNLP 2026 (Main).</span></li>
-            <li><time>2026</time><span>Joined the ML3 Lab at Yonsei University as an undergraduate researcher.</span></li>
+            <li><time>2026</time><span>“<a href="https://arxiv.org/abs/2608.30158" target="_blank" rel="noopener">CPR for LLMs: Critical-Point Routing against Catastrophic Forgetting in Domain Adaptation</a>” was accepted to <b>EMNLP 2026</b> (Main) as an <span class="red">oral presentation</span>.</span></li>
+            <li><time>2026</time><span>“How Instruction Hierarchy Breaks Under Pairwise Multi-Conflict Pressure” was accepted to <b>EMNLP 2026</b> (Main).</span></li>
+            <li><time>2026</time><span>Joined the <b>ML3 Lab</b> at Yonsei University as an undergraduate researcher.</span></li>
           </ul>
         </div>
       </section>
@@ -282,27 +291,27 @@
         <div class="content">
           <div class="beyond">
             <ul class="plain">
-              <li>I grew up in several countries: seven years in China, one year in Canada, four years in Czech Republic, and the rest in Korea.</li>
-              <li>Growing up on the move got me hooked on exploring new places and trying new things just for the joy of it!</li>
+              <li>I grew up in several countries: <b>seven years in China</b>, <b>one year in Canada</b>, <b>four years in Czech Republic</b>, and the rest in <b>Korea</b>.</li>
+              <li>Growing up on the move got me hooked on <b>exploring new places</b> and <b>trying new things</b> just for the joy of it!</li>
               <li>Always up for a chat about research, collaboration, or a good cup of coffee!</li>
             </ul>
             <!-- PHOTO GALLERY: to add a photo, upload it to the "photos" folder and copy one <figure> block below.
                  Photos are cropped to 4:3 automatically; clicking one opens the full image. -->
             <div class="gallery">
               <figure>
-                <img src="photos/first.JPG" alt="" loading="lazy"></a>
+                <img src="photos/first.JPG" alt="" loading="lazy">
                 <figcaption>Making friends on Cat Island</figcaption>
               </figure>
               <figure>
-                <img src="photos/second.JPG" alt="" loading="lazy"></a>
+                <img src="photos/second.JPG" alt="" loading="lazy">
                  <figcaption>Flying over the Pacific</figcaption>
               </figure>
               <figure>
-                <img src="photos/third.JPG" alt="" loading="lazy"></a>
+                <img src="photos/third.JPG" alt="" loading="lazy">
                 <figcaption>Found a hidden beach in Guam</figcaption>
               </figure>
               <figure>
-                <img src="photos/fourth.JPG" alt="" loading="lazy"></a>
+                <img src="photos/fourth.JPG" alt="" loading="lazy">
                 <figcaption>Took a photo in a retro concept</figcaption>
               </figure>
             </div>
