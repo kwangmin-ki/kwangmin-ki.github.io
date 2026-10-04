@@ -10,6 +10,9 @@
   <meta property="og:description" content="Undergraduate researcher working on LLM reasoning, reliability, and adaptation.">
   <meta property="og:image" content="https://kwangmin-ki.github.io/profile.jpg">
   <link rel="canonical" href="https://kwangmin-ki.github.io/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <style>
     :root {
@@ -18,7 +21,8 @@
       --soft: #555555;
       --muted: #7a7a7a;
       --rule: #e9e9e9;
-      --accent: #0e8a8a;
+      --accent: #007534;
+      --title: #005c26;
       --font: "Pretendard Variable", Pretendard, "Helvetica Neue", Helvetica, Arial, "Apple SD Gothic Neo", sans-serif;
     }
     * { box-sizing: border-box; }
@@ -32,7 +36,7 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
-    ::selection { background: #cfeeee; }
+    ::selection { background: #d3ecdb; }
 
     a {
       color: inherit;
@@ -44,67 +48,75 @@
     a:hover { color: var(--accent); }
     a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-    .page { max-width: 820px; margin: 0 auto; padding: 72px 28px 56px; }
+    .page { max-width: 1040px; margin: 0 auto; padding: 72px 40px 56px; }
 
     /* Top */
-    .top { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 64px; }
+    .top { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 64px; }
     h1 {
       margin: 0;
-      font-size: clamp(2.6rem, 8vw, 4.2rem);
+      font-size: clamp(2.8rem, 8vw, 4.8rem);
       font-weight: 600;
       line-height: 1.05;
       letter-spacing: -0.04em;
+      color: var(--title);
+      white-space: nowrap;
     }
-    .tagline { margin: 18px 0 0; color: var(--soft); font-size: 1.02rem; line-height: 1.6; }
-    .top img {
-      width: 144px; height: 180px; flex: none;
+    .tagline { margin: 20px 0 0; color: var(--soft); font-size: 1.05rem; line-height: 1.6; }
+
+    .profile { width: 240px; flex: none; }
+    .profile img {
+      display: block; width: 240px; height: 300px;
       border-radius: 4px; object-fit: cover; background: var(--rule);
     }
+    .social { display: flex; justify-content: space-between; margin: 16px 6px 0; }
+    .social a {
+      display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center;
+      color: var(--soft); text-decoration: none; border-radius: 50%;
+    }
+    .social a:hover { color: var(--accent); background: #edf6f0; }
+    .social svg { width: 22px; height: 22px; display: block; }
 
     /* Sections: label on the left, content on the right */
     .row {
       display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 0 40px;
-      padding: 28px 0;
+      grid-template-columns: 150px 1fr;
+      gap: 0 48px;
+      padding: 30px 0;
       border-top: 1px solid var(--rule);
     }
     .row h2 { margin: 3px 0 0; font-size: 0.95rem; font-weight: 500; color: var(--muted); }
     .content { min-width: 0; }
-    .content p { margin: 0 0 1em; max-width: 38em; }
+    .content p { margin: 0 0 1em; max-width: 46em; }
     .content > :last-child { margin-bottom: 0; }
 
     /* News */
-    .news { list-style: none; margin: 0; padding: 0; max-width: 38em; }
+    .news { list-style: none; margin: 0; padding: 0; max-width: 46em; }
     .news li { display: grid; grid-template-columns: 48px 1fr; gap: 8px; margin-bottom: 6px; }
     .news time { color: var(--muted); font-variant-numeric: tabular-nums; }
 
-    /* Dated entries (education, experience, activities) */
-    .entry { display: grid; grid-template-columns: 92px 1fr; gap: 0 12px; margin-bottom: 14px; }
+    /* Dated entries */
+    .entry { display: grid; grid-template-columns: 100px 1fr; gap: 0 12px; margin-bottom: 14px; }
     .entry:last-child { margin-bottom: 0; }
     .entry .when { color: var(--muted); font-variant-numeric: tabular-nums; }
     .entry .what { font-weight: 600; letter-spacing: -0.005em; }
     .entry .sub { color: var(--soft); font-size: 0.95rem; }
 
     /* Publications */
-    .pub { margin: 0 0 22px; }
+    .pub { margin: 0 0 24px; }
     .pub:last-child { margin-bottom: 0; }
-    .pub .title { font-weight: 600; line-height: 1.5; letter-spacing: -0.005em; }
+    .pub .title { font-weight: 600; line-height: 1.5; letter-spacing: -0.005em; color: var(--title); }
     .pub .authors { color: var(--soft); font-size: 0.95rem; margin-top: 2px; }
     .pub .authors b { color: var(--ink); font-weight: 600; }
-    .pub .venue { font-size: 0.95rem; font-style: italic; color: var(--soft); }
-    .pub .venue .hl { color: var(--accent); font-style: normal; font-weight: 600; }
+    .pub .venue { font-size: 0.95rem; color: var(--soft); }
+    .pub .venue b { color: var(--ink); font-weight: 700; }
+    .pub .venue .oral { color: var(--accent); font-weight: 700; white-space: nowrap; }
+    .pub .venue .oral svg { width: 1.1em; height: 0.95em; vertical-align: -0.12em; margin-right: 5px; }
     .pub .links { font-size: 0.9rem; margin-top: 2px; }
     .pub .links a { margin-right: 14px; }
 
     /* Lists */
-    .plain { margin: 0; padding-left: 1.2em; max-width: 38em; }
-    .plain li { margin-bottom: 4px; }
-
-    /* Contact */
-    .contact dl { margin: 0; display: grid; grid-template-columns: 76px 1fr; gap: 2px 8px; }
-    .contact dt { color: var(--muted); }
-    .contact dd { margin: 0; }
+    .plain { margin: 0; padding-left: 1.2em; max-width: 46em; }
+    .plain li { margin-bottom: 6px; }
 
     footer {
       display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
@@ -112,10 +124,12 @@
       color: var(--muted); font-size: 0.85rem;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 760px) {
       .page { padding: 44px 22px 40px; }
       .top { flex-direction: column-reverse; align-items: flex-start; gap: 24px; margin-bottom: 44px; }
-      .top img { width: 112px; height: 140px; }
+      .profile { width: 168px; }
+      .profile img { width: 168px; height: 210px; }
+      .social { margin: 12px 2px 0; }
       .row { grid-template-columns: 1fr; gap: 8px; }
       .row h2 { margin: 0; }
       .entry { grid-template-columns: 1fr; }
@@ -127,13 +141,30 @@
 
     <header class="top">
       <div>
-        <h1>Kwangmin<br>Ki</h1>
+        <h1>Kwangmin Ki</h1>
         <p class="tagline">
           Undergraduate researcher, ML3 Lab, Yonsei University<br>
           B.S. student in Computer Science &amp; Life Sciences, Korea University
         </p>
       </div>
-      <img src="profile.jpg" alt="Portrait of Kwangmin Ki" width="144" height="180">
+
+      <div class="profile">
+        <img src="profile.jpg" alt="Portrait of Kwangmin Ki" width="240" height="300">
+        <nav class="social" aria-label="Contact links">
+          <a href="mailto:kwangminki@korea.ac.kr" title="Email" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+          </a>
+          <a href="https://scholar.google.com/citations?user=D6ixI6oAAAAJ&amp;hl=en&amp;oi=sra" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          </a>
+          <a href="https://github.com/kwangmin-ki" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/kwangminki/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+        </nav>
+      </div>
     </header>
 
     <main>
@@ -164,14 +195,14 @@
           <article class="pub">
             <div class="title">Efficient Reward Hacking Detection using Answer Likelihood under Truncated Reasoning</div>
             <div class="authors"><b>Kwangmin Ki</b>, Minju Gwak, Jaehyung Kim</div>
-            <div class="venue">Under review, ICLR 2027</div>
+            <div class="venue">Under review, <b>ICLR 2027</b></div>
             <div class="links"><a href="https://github.com/kwangmin-ki/efficient_trace" target="_blank" rel="noopener">Code</a></div>
           </article>
 
           <article class="pub">
             <div class="title">CPR for LLMs: Critical-Point Routing against Catastrophic Forgetting in Domain Adaptation</div>
             <div class="authors"><b>Kwangmin Ki</b>, Yunhun Nam, Jongheon Jeong, Jaehyung Kim</div>
-            <div class="venue">EMNLP 2026 (Main), <span class="hl">Oral</span></div>
+            <div class="venue"><b>EMNLP 2026</b> (Main), <span class="oral"><svg viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M552 64H448V24c0-13.3-10.7-24-24-24H152c-13.3 0-24 10.7-24 24v40H24C10.7 64 0 74.7 0 88v56c0 35.7 22.5 72.4 61.9 100.7 31.5 22.7 69.8 37.1 110 41.7C203.3 338.5 240 360 240 360v72h-48c-35.3 0-64 20.7-64 56v12c0 6.6 5.4 12 12 12h296c6.6 0 12-5.4 12-12v-12c0-35.3-28.7-56-64-56h-48v-72s36.7-21.5 68.1-73.6c40.3-4.6 78.6-19 110-41.7 39.3-28.3 61.9-65 61.9-100.7V88c0-13.3-10.7-24-24-24zM99.3 192.8C74.9 175.2 64 155.6 64 144v-16h64.2c1 32.6 5.8 61.2 12.8 86.2-15.1-5.2-29.2-12.4-41.7-21.4zM512 144c0 16.1-17.7 36.1-35.3 48.8-12.5 9-26.7 16.2-41.8 21.4 7-25 11.8-53.6 12.8-86.2H512v16z"/></svg>Oral</span></div>
             <div class="links">
               <a href="https://arxiv.org/abs/2608.30158" target="_blank" rel="noopener">Paper</a>
               <a href="https://github.com/kwangmin-ki/CPR" target="_blank" rel="noopener">Code</a>
@@ -181,14 +212,17 @@
           <article class="pub">
             <div class="title">How Instruction Hierarchy Breaks Under Pairwise Multi-Conflict Pressure</div>
             <div class="authors">Yerin Hwang, Jiwon Moon, Changho Lee, <b>Kwangmin Ki</b>, Taegwan Kang, Jinsik Lee, Honglak Lee, Kyomin Jung</div>
-            <div class="venue">EMNLP 2026 (Main)</div>
+            <div class="venue"><b>EMNLP 2026</b> (Main)</div>
           </article>
 
           <article class="pub">
             <div class="title">When to Ensemble: Identifying Token-Level Points for Stable and Fast LLM Ensembling</div>
             <div class="authors">Heecheol Yun, <b>Kwangmin Ki</b>, Jung Hyun Lee, Eunho Yang</div>
-            <div class="venue">ICLR 2026 (Poster)</div>
-            <div class="links"><a href="https://arxiv.org/abs/2510.15346" target="_blank" rel="noopener">Paper</a></div>
+            <div class="venue"><b>ICLR 2026</b> (Poster)</div>
+            <div class="links">
+              <a href="https://arxiv.org/abs/2510.15346" target="_blank" rel="noopener">Paper</a>
+              <a href="https://github.com/yoon6503/SAFE" target="_blank" rel="noopener">Code</a>
+            </div>
           </article>
 
         </div>
@@ -225,35 +259,20 @@
               <div class="sub">Korea University Data Science Society. Taught the NLP summer bootcamp and co-hosted a large-scale hackathon.</div>
             </div>
           </div>
-          <div class="entry">
-            <div class="when">2024</div>
-            <div>
-              <div class="what">Excellence Award, K-Data Science Hackathon</div>
-              <div class="sub">National Research Foundation of Korea</div>
-            </div>
-          </div>
         </div>
       </section>
 
       <section class="row" id="other">
-        <h2>Other Facts</h2>
+        <h2>Beyond the Lab</h2>
         <div class="content">
-          <!-- To add hobbies or recent interests, copy a <li> line below -->
+          <!-- To add more, copy a <li> line below -->
           <ul class="plain">
-            <li>I spent 2015 to 2018 at the International School of Prague.</li>
-            <li>I read and write in Korean, English, and German (Goethe-Zertifikat B1).</li>
+            <li>I spent my high school years at the International School of Prague, and I still love wandering around new cities.</li>
+            <li>I speak Korean and English, and I am learning German (Goethe-Zertifikat B1).</li>
+            <li>My Life Sciences side keeps me curious about how living systems learn and adapt, and what language models could borrow from them.</li>
+            <li>I enjoy teaching. I ran the NLP bootcamp at KUBIG and like helping newcomers get started with ML.</li>
+            <li>Always up for a chat about research, collaboration, or a good cup of coffee.</li>
           </ul>
-        </div>
-      </section>
-
-      <section class="row contact" id="contact">
-        <h2>Contact</h2>
-        <div class="content">
-          <dl>
-            <dt>Email</dt><dd><a href="mailto:kwangminki@korea.ac.kr">kwangminki@korea.ac.kr</a></dd>
-            <dt>GitHub</dt><dd><a href="https://github.com/kwangmin-ki" target="_blank" rel="noopener">kwangmin-ki</a></dd>
-            <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/kwangminki/" target="_blank" rel="noopener">kwangminki</a></dd>
-          </dl>
         </div>
       </section>
 
